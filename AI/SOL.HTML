@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Crop Advisor</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f3f9f3;
+      color: #333;
+    }
+    header {
+      background: #2e7d32;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .container {
+      padding: 1rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .traffic-light {
+      font-size: 2rem;
+      text-align: center;
+    }
+    .btn {
+      background: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.7rem 1.2rem;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      width: 100%;
+    }
+    .btn:disabled {
+      background: #a5d6a7;
+    }
+    .icon-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .icon-card img {
+      width: 40px;
+      height: 40px;
+    }
+    .solution-box {
+      background: #e8f5e9;
+      border-left: 6px solid #2e7d32;
+      padding: 0.8rem;
+      margin-top: 0.5rem;
+      border-radius: 6px;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌾 Smart Crop Advisor</h1>
+    <p>Simple AI-powered tips for farmers</p>
+  </header>
+
+  <div class="container">
+    <!-- Daily Recommendation -->
+    <div class="card">
+      <h2>Today’s Recommendation</h2>
+      <div class="traffic-light" id="recommendation">🟡 Wait for better conditions</div>
+    </div>
+
+    <!-- Weather Forecast -->
+    <div class="card icon-card">
+      <img src="https://img.icons8.com/color/48/000000/sun--v1.png" alt="Weather">
+      <div>
+        <h3>Weather</h3>
+        <p id="weatherInfo">Loading weather...</p>
+      </div>
+    </div>
+
+    <!-- Water & Fertilizer Schedule -->
+    <div class="card">
+      <h3>Water & Fertilizer</h3>
+      <p>💧 Water today: <span id="waterAdvice">--</span></p>
+      <p>🌱 Fertilizer: <span id="fertilizerAdvice">--</span></p>
+    </div>
+
+    <!-- Voice Input -->
+    <div class="card">
+      <h3>🎙️ Ask the Assistant</h3>
+      <button class="btn" onclick="startListening()">Speak Crop Details</button>
+      <p id="voiceResult">(Say your crop and soil type...)</p>
+      <div id="voiceSolution" class="solution-box"></div>
+    </div>
+
+    <!-- Crop Health Upload -->
+    <div class="card">
+      <h3>📸 Crop Health Check</h3>
+      <input type="file" accept="image/*" onchange="analyzeImage(event)" />
+      <p id="cropHealth">Upload a crop photo to check health.</p>
+      <div id="healthSolution" class="solution-box"></div>
+    </div>
+
+    <!-- Yield Prediction Graph -->
+    <div class="card">
+      <h3>📊 Predicted Yield</h3>
+      <canvas id="yieldChart" width="400" height="200"></canvas>
+    </div>
+  </div>
+
+  <script>
+    // Mock weather data (fallback if real API unavailable)
+    window.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("weatherInfo").textContent = "Sunny, 32°C, light winds";
+      document.getElementById("waterAdvice").textContent = "80 liters per acre";
+      document.getElementById("fertilizerAdvice").textContent = "2kg Urea in 5 days";
+    });
+
+    // Voice recognition (Web Speech API)
+    function startListening() {
+      const result = document.getElementById("voiceResult");
+      const solution = document.getElementById("voiceSolution");
+      try {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SpeechRecognition) {
+          result.textContent = "Voice input not supported in this browser.";
+          return;
+        }
+        const recognition = new SpeechRecognition();
+        recognition.lang = "en-IN";
+        recognition.start();
+        recognition.onresult = function(event) {
+          const speech = event.results[0][0].transcript;
+          result.textContent = "You said: " + speech;
+          document.getElementById("recommendation").textContent = "🟢 Good to sow now";
+          solution.style.display = "block";
+          solution.textContent = "Solution: Based on your input, conditions are good for sowing. Ensure adequate watering.";
+        };
+      } catch (err) {
+        result.textContent = "Voice recognition error: " + err.message;
+      }
+    }
+
+    // Crop health mock analysis with multiple outcomes
+    function analyzeImage(event) {
+      const health = document.getElementById("cropHealth");
+      const solution = document.getElementById("healthSolution");
+      health.textContent = "Analyzing image...";
+      solution.style.display = "none";
+
+      setTimeout(() => {
+        const conditions = [
+          {text: "✅ Crop looks healthy. No issues detected.", solution: "No action needed. Continue regular care."},
+          {text: "🐛 Pest risk detected.", solution: "Apply Neem spray or organic pesticide."},
+          {text: "🍂 Signs of nutrient deficiency.", solution: "Add nitrogen-rich fertilizer."},
+          {text: "💧 Possible water stress.", solution: "Irrigate the field today."},
+          {text: "🌾 Early signs of fungal infection.", solution: "Use appropriate fungicide immediately."}
+        ];
+        const randomCondition = conditions[Math.floor(Math.random() * conditions.length)];
+        health.textContent = randomCondition.text;
+        solution.style.display = "block";
+        solution.textContent = "Solution: " + randomCondition.solution;
+      }, 2000);
+    }
+
+    // Chart.js yield chart
+    const ctx = document.getElementById('yieldChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Baseline Yield', 'Predicted Yield'],
+        datasets: [{
+          label: 'Quintals per Acre',
+          data: [20, 22],
+          backgroundColor: ['#a5d6a7','#2e7d32']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
