@@ -1,0 +1,109 @@
+body { 
+    font-family: Arial, sans-serif; 
+    background-color: #f8f8f8; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    margin: 0; 
+} 
+ 
+.container { 
+    background-color: #fff; 
+    padding: 30px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    width: 100%; 
+    max-width: 550px; 
+} 
+ 
+h1 { 
+    text-align: center; 
+    color: #cc6600; /* Header color */ 
+    border-bottom: 3px solid #ffcc99; 
+    padding-bottom: 10px; 
+    margin-bottom: 25px; 
+    font-size: 1.8em; 
+} 
+ 
+/* Form Group Layout */ 
+.form-group { 
+    margin-bottom: 20px; 
+} 
+ 
+.form-group label { 
+    display: block; 
+    margin-bottom: 6px; 
+    font-weight: bold; 
+    color: #555; 
+} 
+ 
+/* Input Fields (Text, Password, Email, Phone, Textarea) */ 
+input[type="text"], 
+input[type="password"], 
+input[type="email"], 
+input[type="tel"], 
+textarea { 
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    box-sizing: border-box; 
+    font-size: 1em; 
+    transition: border-color 0.3s; 
+} 
+input:focus, textarea:focus { 
+    border-color: #ff9900; 
+    outline: none; 
+} 
+textarea { 
+    resize: vertical; 
+} 
+ 
+/* Date of Birth Select Boxes */ 
+.dob-selects { 
+    display: flex; 
+    gap: 10px; 
+} 
+.dob-selects select { 
+    flex: 1; 
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    font-size: 1em; 
+} 
+ 
+/* Inline Input Groups (Radio and Checkbox) */ 
+.input-group-inline { 
+    padding: 10px; 
+    border: 1px solid #f0f0f0; 
+    border-radius: 5px; 
+} 
+.input-group-inline label { 
+    font-weight: normal; 
+    display: inline-block; 
+    margin-right: 20px; 
+} 
+.input-group-inline input[type="radio"],  
+.input-group-inline input[type="checkbox"] { 
+    width: auto; 
+    margin-right: 5px; 
+} 
+ 
+/* Submit Button */ 
+button[type="submit"] { 
+    background-color: #ff9900;  
+    color: white; 
+    padding: 12px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 1.1em; 
+    width: 100%; 
+    margin-top: 20px; 
+    transition: background-color 0.3s; 
+} 
+ 
+button[type="submit"]:hover { 
+    background-color: #e68a00; 
+}

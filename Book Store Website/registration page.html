@@ -1,0 +1,100 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Registration Page</title> 
+    <link rel="stylesheet" href="registration page.css"> 
+</head> 
+<body> 
+    <div class="container"> 
+        <h1>REGISTRATION PAGE</h1> 
+        <form action="#" method="post"> 
+ 
+            <div class="form-group"> 
+                <label for="name">1) Name:</label> 
+                <input type="text" id="name" name="name" required> 
+            </div> 
+ 
+            <div class="form-group"> 
+                <label for="password">2) Password:</label> 
+                <input type="password" id="password" name="password" required> 
+            </div> 
+ 
+            <div class="form-group"> 
+                <label for="email">3) E-mail ID:</label> 
+                <input type="email" id="email" name="email" required> 
+            </div> 
+ 
+            <div class="form-group"> 
+                <label for="phone">4) Phone Number:</label> 
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" title="10-digit 
+phone number" required> 
+            </div> 
+ 
+            <div class="form-group"> 
+                <label>5) Sex:</label> 
+                <div class="input-group-inline"> 
+                    <input type="radio" id="male" name="sex" value="Male" required> 
+                    <label for="male">Male</label> 
+                    <input type="radio" id="female" name="sex" value="Female"> 
+                    <label for="female">Female</label> 
+                    <input type="radio" id="other" name="sex" value="Other"> 
+                    <label for="other">Other</label> 
+                </div> 
+            </div> 
+ 
+            <div class="form-group"> 
+                <label>6) Date of Birth:</label> 
+                <div class="dob-selects"> 
+                    <select id="dob_day" name="dob_day" required> 
+                        <option value="">Day</option> 
+                        <script>for (let i = 1; i <= 31; i++) document.write(`<option 
+value="${i}">${i}</option>`);</script> 
+                    </select> 
+                    <select id="dob_month" name="dob_month" required> 
+                        <option value="">Month</option> 
+                        <option value="01">Jan</option><option value="02">Feb</option><option 
+value="03">Mar</option> 
+                        <option value="04">Apr</option><option value="05">May</option><option 
+value="06">Jun</option> 
+                        <option value="07">Jul</option><option value="08">Aug</option><option 
+value="09">Sep</option> 
+                        <option value="10">Oct</option><option value="11">Nov</option><option 
+value="12">Dec</option> 
+                    </select> 
+                    <select id="dob_year" name="dob_year" required> 
+                        <option value="">Year</option> 
+                        <script> 
+                            const currentYear = new Date().getFullYear(); 
+                            for (let i = currentYear; i >= 1950; i--) document.write(`<option 
+value="${i}">${i}</option>`); 
+                        </script> 
+                    </select> 
+                </div> 
+            </div> 
+ 
+            <div class="form-group"> 
+                <label>7) Languages Known:</label> 
+                <div class="input-group-inline"> 
+                    <input type="checkbox" id="english" name="language[]" value="English"> 
+                    <label for="english">English</label> 
+                    <input type="checkbox" id="telugu" name="language[]" value="Telugu"> 
+                    <label for="telugu">Telugu</label> 
+                    <input type="checkbox" id="hindi" name="language[]" value="Hindi"> 
+                    <label for="hindi">Hindi</label> 
+                    <input type="checkbox" id="tamil" name="language[]" value="Tamil"> 
+                    <label for="tamil">Tamil</label> 
+                </div> 
+            </div> 
+ 
+            <div class="form-group"> 
+                <label for="address">8) Address:</label> 
+                <textarea id="address" name="address" rows="4" required></textarea> 
+            </div> 
+ 
+            <button type="submit">Register</button> 
+        </form> 
+    </div> 
+</body> 
+</html>

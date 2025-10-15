@@ -1,0 +1,81 @@
+body { 
+    margin: 0; 
+    font-family: Arial, sans-serif; 
+} 
+.header { 
+    display: flex; 
+    align-items: center; 
+    background: #f9dda2; 
+    border-bottom: 2px solid #d4a16b; 
+    padding: 10px; 
+} 
+.logo { 
+    font-weight: bold; 
+    background: #edb274; 
+    padding: 8px 16px; 
+    color: #3d2c00; 
+} 
+.sitename { 
+    font-size: 1.2em; 
+    margin-left: 18px; 
+    flex: 1; 
+} 
+.navbar a { 
+    padding: 10px 16px; 
+    color: #7d5100; 
+    text-decoration: none; 
+    font-weight: bold; 
+    background: #ffe2c6; 
+    margin-right: 6px; 
+    border-radius: 2px; 
+} 
+.navbar a:hover { 
+    background: #fbe9dc; 
+} 
+.main { 
+    display: flex; 
+} 
+.sidebar { 
+    width: 120px; 
+    background: #fff6ec; 
+    border-right: 2px solid #f3c37c; 
+    padding: 24px 0 0 20px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+    font-size: 1.05em; 
+    color: #835218; 
+} 
+.content { 
+    flex: 1; 
+    padding: 36px; 
+    background: #fff9ee; 
+} 
+.catalogue-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    background: #fff;  
+} 
+.catalogue-table th, .catalogue-table td { 
+    border: 1.5px solid #edbc7a; 
+    padding: 14px 9px; 
+    text-align: left; 
+    vertical-align: middle; 
+} 
+.catalogue-table th { 
+    background: #f9dda2; 
+    color: #633800; 
+} 
+.cart-btn { 
+    background: #ffeaaa; 
+    border: 2px solid #c8a649; 
+    color: #984700; 
+    font-weight: bold; 
+    padding: 6px 19px; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    box-shadow: 1.5px 1.5px 3px #edbc7a62; 
+} 
+.cart-btn:hover { 
+    background: #ffd97d; 
+}

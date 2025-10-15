@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Cart Page - Online Bookstore</title> 
+    <link rel="stylesheet" href="cartpage.css"> 
+</head> 
+<body> 
+ 
+    <header> 
+        <div class="logo-nav"> 
+            <h2>Web Site Name</h2> 
+            <nav> 
+                <a href="homepage.html">Home</a> 
+                <a href="login.html">Login</a> 
+                <a href="registration.html">Registration</a> 
+                <a href="catalogue.html">Catalogue</a> 
+                <a href="cart.html">Cart</a> 
+            </nav> 
+        </div> 
+    </header> 
+ 
+    <div class="cart-container"> 
+        <h1>CART PAGE</h1> 
+ 
+        <table class="cart-table"> 
+            <thead> 
+                <tr> 
+                    <th>Department</th> 
+                    <th>Book name</th> 
+                    <th class="price-col">Price</th> 
+                    <th class="quantity-col">Quantity</th> 
+                    <th class="amount-col">Amount</th> 
+                </tr> 
+            </thead> 
+            <tbody> 
+                <tr> 
+                    <td class="dept-row">CSE</td> 
+                    <td>Java 2</td> 
+                    <td class="price-col">$35.5</td> 
+                    <td class="quantity-col">2</td> 
+                    <td class="amount-col">$70.0</td> 
+                </tr> 
+                <tr> 
+                    <td class="dept-row">ECE</td> 
+                    <td colspan="4"></td> 
+                </tr> 
+ 
+                <tr> 
+                    <td class="dept-row">EEE</td> 
+                    <td>XML bible</td> 
+                    <td class="price-col">$40.5</td> 
+                    <td class="quantity-col">1</td> 
+                    <td class="amount-col">$40.5</td> 
+                </tr> 
+                 
+                <tr class="total-row"> 
+                    <td class="dept-row">CIVIL</td> 
+                    <td colspan="2">Total amount</td> 
+                    <td></td> <td class="amount-col">$130.5</td> 
+                </tr> 
+            </tbody> 
+        </table> 
+         
+        <p class="checkout-section"> 
+            <button class="checkout-button">Proceed to Checkout</button> 
+        </p> 
+    </div> 
+ 
+</body> 
+</html>

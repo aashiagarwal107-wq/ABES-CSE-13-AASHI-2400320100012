@@ -1,0 +1,130 @@
+body { 
+    margin: 0; 
+    font-family: Arial, sans-serif; 
+} 
+ 
+.top-frame { 
+    display: flex; 
+    align-items: center; 
+    background-color: #f9dda2; 
+    padding: 10px; 
+    border-bottom: 2px solid #d4a16b; 
+} 
+.logo { 
+    font-weight: bold; 
+    margin-right: 20px; 
+} 
+.site-name { 
+    font-size: 1.3em; 
+    flex: 1; 
+    margin-left: 10px; 
+} 
+.nav-links a { 
+    margin: 0 10px; 
+    text-decoration: none; 
+    color: #575757; 
+    font-weight: bold; 
+} 
+.nav-links a:hover { 
+    color: #b67b2f; 
+} 
+ 
+.main-frame { 
+    display: flex; 
+    height: 88vh; 
+} 
+ 
+.left-frame { 
+    width: 150px; 
+    background-color: #fff3dc; 
+    border-right: 2px solid #d4a16b; 
+    padding: 20px 10px; 
+} 
+ 
+.left-frame ul { 
+    list-style-type: none; 
+    padding: 0; 
+} 
+ 
+.left-frame li { 
+    margin-bottom: 12px; 
+} 
+ 
+.left-frame a { 
+    text-decoration: none; 
+    color: #8b5407; 
+    font-weight: bold; 
+} 
+ 
+.left-frame a:hover { 
+    text-decoration: underline; 
+    color: #d4851d; 
+} 
+ 
+.right-frame { 
+    flex: 1; 
+    padding: 60px 40px; 
+    background-color: #fff9ef; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+} 
+ 
+.login-form { 
+    background: #fff; 
+    padding: 28px 36px; 
+    border: 1.5px solid #d4a16b; 
+    border-radius: 8px; 
+    box-shadow: 1px 1px 7px #d4a16b2f; 
+    min-width: 340px; 
+} 
+ 
+.login-form h3 { 
+    text-align: left; 
+    margin-bottom: 16px; 
+    color: #6a3a00; 
+} 
+ 
+.login-form label { 
+    display: inline-block; 
+    margin-right: 12px; 
+    margin-bottom: 8px; 
+    width: 100px; 
+    font-size: 1em; 
+    color: #6a3a00; 
+} 
+ 
+.login-form input[type="text"], 
+.login-form input[type="password"] { 
+    width: 180px; 
+    border: 2px solid #232323; 
+    padding: 5px 8px; 
+    margin-bottom: 14px; 
+    box-sizing: border-box; 
+    font-size: 1em; 
+} 
+ 
+.submit-btn { 
+    background: #fff; 
+    color: #b84517; 
+    border: 2.5px solid #333; 
+    padding: 6px 27px; 
+    font-size: 1em; 
+    font-weight: bold; 
+    margin-right: 10px; 
+    cursor: pointer; 
+} 
+ 
+.reset-btn { 
+    background: #fff; 
+    color: #b84517; 
+    border: 1.5px solid #d9d9d9; 
+    padding: 6px 27px; 
+    font-size: 1em; 
+    font-weight: bold; 
+    cursor: pointer; 
+} 
+ 
+.submit-btn:hover, .reset-btn:hover { 
+    background: #ffe1bc; 
+}
